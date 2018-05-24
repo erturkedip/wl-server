@@ -27,7 +27,14 @@ exports.create = (req, res) => {
 
 // Retrieve and return all words from the database.
 exports.findAll = (req, res) => {
-
+    Word.find()
+        .then(words => {
+            res.send(words);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving words."
+            });
+        });
 };
 
 // Find a single word with a wordId
