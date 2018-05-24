@@ -2,7 +2,11 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const dbConfig = require('./server/config/database.config.js');
 const mongoose = require('mongoose');
+
+
 const app = express()
+var server = require('http').Server(app);
+var port     = process.env.PORT || 8080;
 
 mongoose.Promise = global.Promise;
 
@@ -19,6 +23,4 @@ mongoose.connect(dbConfig.url)
     process.exit();
 });
 
-app.listen(8000, () => {
-    console.log("Server is listening on port 3000");
-});
+server.listen(port)
