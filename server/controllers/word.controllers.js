@@ -2,7 +2,7 @@ const Word = require('../models/word.model.js');
 
 // Create and Save a new Word
 exports.create = (req, res) => {
-    if (!req.body.content) {
+    if (!req.body) {
         return res.status(400).send({
             message: "Word content can not be empty"
         });
