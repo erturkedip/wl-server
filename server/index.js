@@ -9,10 +9,6 @@ mongoose.Promise = global.Promise;
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.get("/", function(req, res){
-    res.send("Hello World");
-})
-
 require('./routes/word.routes.js')(app);
 
 mongoose.connect(dbConfig.url)
