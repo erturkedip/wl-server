@@ -1,6 +1,10 @@
 module.exports = (app) => {
     const words = require('../controllers/word.controllers.js');
 
+    app.get('/', function(req, res) {
+		res.end("WordLine Uygulaması Rest API");
+	});
+
     // Create a new Word
     app.post('/word', words.create);
 
